@@ -12,6 +12,8 @@ export default class BabyHog extends Component {
 
   constructor(props) {
     super(props)
+    
+    weight: 100
   }
 
   changeWeight = (e) => {
