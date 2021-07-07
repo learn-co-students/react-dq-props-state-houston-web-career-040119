@@ -12,10 +12,16 @@ export default class BabyHog extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      weight: 0
+    }
   }
 
   changeWeight = (e) => {
+    
+    
     // nothing needs to change here
+    //const newWeight = 10
     const newWeight = e.target.name === "+" ? (this.state.weight + 10) : (this.state.weight - 10)
     this.setState({
       weight: newWeight
@@ -23,17 +29,22 @@ export default class BabyHog extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <li className="hogbabies">
-        <h1>Name</h1>
-        <h3>Weight:</h3>
-        <h3>Hobby:</h3>
-        <h4>Eye Color:</h4>
+        <h1>{this.props.name}</h1>
+        <h3>{this.state.weight}</h3>
+        <h3>{this.props.hobby}</h3>
+        <h4>{this.props.eyeColor}</h4>
           
-        <Button name="+">
+        <Button onClick={(e) => {
+          this.changeWeight(e)
+          }} name="+">
           Increase Weight
         </Button>
-        <Button name="-">
+        <Button onClick={(e) => {
+          this.changeWeight(e)
+        }}name="-">
           Decrease Weight
         </Button>
 
